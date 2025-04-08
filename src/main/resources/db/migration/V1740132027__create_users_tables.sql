@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS users
 (
     id serial,
-    username  character varying(255),
+    username  character varying(255) UNIQUE,
     first_name  character varying(255),
     last_name  character varying(255),
     password  character varying(255),
