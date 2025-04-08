@@ -12,4 +12,6 @@ public class LoginResponse {
 
     private long expiresIn;
 
+    private String expiresInHumanReadable;
+
 }

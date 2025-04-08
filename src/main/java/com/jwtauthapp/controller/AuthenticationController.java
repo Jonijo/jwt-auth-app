@@ -7,6 +7,7 @@ import com.jwtauthapp.entity.LoginResponse;
 import com.jwtauthapp.model.User;
 import com.jwtauthapp.service.AuthenticationService;
 import com.jwtauthapp.service.JwtService;
+import com.jwtauthapp.util.TimeUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +39,7 @@ public class AuthenticationController {
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setToken(jwtToken);
         loginResponse.setExpiresIn(jwtService.getExpirationTime());
+        loginResponse.setExpiresInHumanReadable(TimeUtils.millisToHumanReadable(jwtService.getExpirationTime()));
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(loginResponse);
     }
